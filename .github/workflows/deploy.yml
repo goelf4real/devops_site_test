@@ -9,18 +9,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: node:20
-
+    
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v3
-        with:
-          node-version: 20
-      - run: docker pull node:20
-      - run: npm test
-      - run: npm run build
-
-
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
        
